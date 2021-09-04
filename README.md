@@ -1,4 +1,4 @@
-# PBinder is the Tinde Clone Application 
+# PBinder is the Tinde Clone Web Application 
 
 This project use these frameworks:
 - React
