@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
 
 function PbinderCard() {
-  const [people, setPeople] = useState([
+  const [people] = useState([
     {
       name: "Vamsi Adari",
       url: "https://avatars.githubusercontent.com/u/22577475?v=4",
