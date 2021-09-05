@@ -2,36 +2,24 @@ import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
 
 function PbinderCard() {
-  const [people] = useState([
-    {
-      name: "Vamsi Adari",
-      url: "https://avatars.githubusercontent.com/u/22577475?v=4",
-    },
-    {
-      name: "Josephine Langford",
-      url: "https://mtv.mtvnimages.com/uri/mgid:ao:image:mtv.com:671777?quality=0.8&format=jpg&width=1440&height=810&.jpg",
-    },
-    {
-      name: "Emilia Clarke",
-      url: "https://media.gq-magazine.co.uk/photos/5d1392d19fa60168d383827d/2:3/w_780,h_1170,c_limit/Emilia-Clarke-GQ-13Apr15_Leo-Cackett_b_1.jpg",
-    },
-    {
-      name: "Alexandra Daddario",
-      url: "https://vz.cnwimg.com/wp-content/uploads/2014/01/alex.jpg",
-    },
-    {
-      name: "Sophie Turner",
-      url: "https://i.pinimg.com/originals/8b/76/a7/8b76a70c0130bc8be7011175d1212070.jpg",
-    },
-    {
-      name: "Emma Watson",
-      url: "https://images.moviefit.me/p/o/1382-emma-watson.jpg",
-    },
-    {
-      name: "Margot Robbie",
-      url: "https://observer.com/wp-content/uploads/sites/2/2020/12/Margo-Robbie_Tim-P.-WhitbyGetty-Images-for-Sony-e1607483364790.jpg?quality=80",
-    },
-  ]);
+  const people_data = {
+    "72gR18K/vamsi.jpg": "Vamsi Adari",
+    "300WGJY/josephine.jpg": "Josephine Langford",
+    "SdCjbMw/emilia.jpg": "Emilia Clarke",
+    "0CcbV0X/sophia.jpg": "Sophie Turner",
+    "h1Mzfdj/emma.jpg": "Emma Watson",
+    "2tCZjjK/margot.jpg": "Margot Robbie",
+  };
+		
+		var useState_Val= [];
+		for (let [key, value] of Object.entries(people_data)) {
+				useState_Val.push({
+                    "name": value,
+                    "url": `https://i.ibb.co/${key}`
+                });
+
+		}
+  const [people] = useState(useState_Val);
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
