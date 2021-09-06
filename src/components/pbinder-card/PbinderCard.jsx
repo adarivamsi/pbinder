@@ -10,16 +10,15 @@ function PbinderCard() {
     "h1Mzfdj/emma.jpg": "Emma Watson",
     "2tCZjjK/margot.jpg": "Margot Robbie",
   };
-		
-		var useState_Val= [];
-		for (let [key, value] of Object.entries(people_data)) {
-				useState_Val.push({
-                    "name": value,
-                    "url": `https://i.ibb.co/${key}`
-                });
 
-		}
-  const [people] = useState(useState_Val);
+  const set_people_data = [];
+  for (let [key, value] of Object.entries(people_data)) {
+    set_people_data.push({
+      name: value,
+      url: `https://i.ibb.co/${key}`,
+    });
+  }
+  const [people] = useState(set_people_data);
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
