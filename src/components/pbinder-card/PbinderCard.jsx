@@ -1,24 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TinderCard from "react-tinder-card";
+import axios from "../../axios";
 
 function PbinderCard() {
-  const people_data = {
-    "72gR18K/vamsi.jpg": "Vamsi Adari",
-    "300WGJY/josephine.jpg": "Josephine Langford",
-    "SdCjbMw/emilia.jpg": "Emilia Clarke",
-    "0CcbV0X/sophia.jpg": "Sophie Turner",
-    "h1Mzfdj/emma.jpg": "Emma Watson",
-    "2tCZjjK/margot.jpg": "Margot Robbie",
-  };
+  const [people, setPeople] = useState([]);
 
-  const set_people_data = [];
-  for (let [key, value] of Object.entries(people_data)) {
-    set_people_data.push({
-      name: value,
-      url: `https://i.ibb.co/${key}`,
-    });
-  }
-  const [people] = useState(set_people_data);
+  useEffect(() => {
+    async function fetchData() {
+      const req = await axios.get("/pbinder/cards");
+      setPeople(req.data);
+    }
+    fetchData();
+  }, []);
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
